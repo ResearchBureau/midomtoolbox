@@ -1,0 +1,31 @@
+<script>
+ <p t="DATEINC">-999</p>
+ <p t="UIDROOT">1.2.3.4</p>
+ <e en="T" t="00080016" n="SOPClassUID">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@skip()}</e>
+ <e en="T" t="00080020" n="StudyDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080021" n="SeriesDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080022" n="AcquisitionDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080023" n="ContentDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080024" n="OverlayDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080025" n="CurveDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="0008002a" n="AcquisitionDatetime">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00080030" n="StudyTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00080031" n="SeriesTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00080032" n="AcquisitionTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00080033" n="ContentTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00080034" n="OverlayTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00080035" n="CurveTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00081110" n="RefStudySeq">@if(0075[ANONYMIZER]81,contains,YES){@process()}{@keep()}</e>
+ <e en="T" t="00081111" n="RefPPSSeq">@if(0075[ANONYMIZER]81,contains,YES){@process()}{@keep()}</e>
+ <e en="T" t="00081140" n="RefImageSeq">@if(0075[ANONYMIZER]81,contains,YES){@process()}{@keep()}</e>
+ <e en="T" t="00120064" n="DeIdentificationMethodCodeSequence">RESET/@if(0075[ANONYMIZER]70,contains,YES){113100/}{}@if(0075[ANONYMIZER]71,contains,YES){113101/}{}@if(0075[ANONYMIZER]72,contains,YES){113102/}{}@if(0075[ANONYMIZER]73,contains,YES){113103/}{}@if(0075[ANONYMIZER]74,contains,YES){113104/}{}@if(0075[ANONYMIZER]75,contains,YES){113105/}{}@if(0075[ANONYMIZER]81,contains,YES){113107/}{}@if(0075[ANONYMIZER]77,contains,YES){113108/}{}@if(0075[ANONYMIZER]78,contains,YES){113109/}{}@if(0075[ANONYMIZER]79,contains,YES){113110/}{}@if(0075[ANONYMIZER]80,contains,YES){113111/}{}</e>
+ <e en="T" t="00280303" n="LongitudinalTemporalInformationModified">@if(0075[ANONYMIZER]79,contains,YES){@always()MODIFIED}{@always()REMOVED}</e>
+ <e en="T" t="00380020" n="AdmittingDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00380021" n="AdmittingTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00400002" n="SPSStartDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00400003" n="SPSStartTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00400004" n="SPSEndDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00400005" n="SPSEndTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+ <e en="T" t="00400244" n="PPSStartDate">@if(0075[ANONYMIZER]81,contains,YES){@incrementdate(this,@DATEINC)}{@keep()}</e>
+ <e en="T" t="00400245" n="PPSStartTime">@if(0075[ANONYMIZER]81,contains,YES){@keep()}{@keep()}</e>
+</script>

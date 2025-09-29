@@ -1,0 +1,6 @@
+<script>
+ <e en="T" t="00100010" n="PatientName">@if(0075[ANONYMIZER]00,isblank){@keep()}{@value(0075[ANONYMIZER]00)}</e>
+ <e en="T" t="00100020" n="PatientID">@if(0075[ANONYMIZER]01,isblank){@keep()}{@value(0075[ANONYMIZER]01)}</e>
+ <e en="T" t="00751004" n="InternalPatientNameChanged">@always()@if(0075[ANONYMIZER]00,isblank){NO}{YES}</e>
+ <e en="T" t="00751005" n="InternalPatientIdChanged">@always()@if(0075[ANONYMIZER]01,isblank){NO}{YES}</e>
+</script>

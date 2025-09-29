@@ -1,0 +1,21 @@
+<script>
+ <e en="T" t="0075[ANONYMIZER]70" n="BasicConfidentiallyProfile">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]71" n="CleanPixelDataOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]72" n="CleanRecognizableVisualFeaturesOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]73" n="CleanGraphicsOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]74" n="CleanStructuredContentOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]75" n="CleanDescriptorsOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]76" n="RetainLongitudinalTemporalInformationWithFullDatesOptions">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]77" n="RetainPatientCharacteristicsOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]78" n="RetainDeviceIdentityOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]79" n="RetainUIDsOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]80" n="RetainSafePrivateOption">@remove()</e>
+ <e en="T" t="0075[ANONYMIZER]81" n="RetainLongitudinalTemporalInformationWithModifiedDatesOptions">@remove()</e>
+ 
+ <e en="T" t="0029[COMPANY A CSA HEADER]08" n="CSAImageHeaderType">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+ <e en="T" t="0029[COMPANY A CSA HEADER]09" n="CSAImageHeaderVersion">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+ <e en="T" t="0029[COMPANY A CSA HEADER]10" n="CSAImageHeaderInfo">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+ <e en="T" t="0029[COMPANY A CSA HEADER]18" n="CSASeriesHeaderType">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+ <e en="T" t="0029[COMPANY A CSA HEADER]19" n="CSASeriesHeaderVersion">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+ <e en="T" t="0029[COMPANY A CSA HEADER]20" n="CSASeriesHeaderInfo">@if(Modality,matches,"MR|PT|CT"){@keep()}{@remove()}</e>
+</script>

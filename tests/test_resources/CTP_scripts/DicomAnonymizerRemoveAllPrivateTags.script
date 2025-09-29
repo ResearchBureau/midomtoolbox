@@ -1,0 +1,5 @@
+<script>
+ <e en="T" t="00080016" n="SOPClassUID">@if(0075[ANONYMIZER]80,contains,YES){@skip()}{@keep()}</e>
+ <k en="F" t="safeprivateelements">Keep safe private elements</k>
+ <r en="T" t="privategroups">Remove private groups</r>
+</script>

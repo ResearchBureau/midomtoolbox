@@ -1,7 +1,36 @@
 [project]
 name = "midomtoolbox"
 version = "0.1.0"
-description = "Add your description here"
+description = "Shape, convert, summarize and analyse MIDOM deidentification Protocols"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2>=3.1.6",
+    "lark>=1.2.2",
+    "midom>=0.3.1",
+    "pre-commit>=4.3.0",
+    "pydicom>=3.0.1",
+    "tabulate>=0.9.0",
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Medical Image Deidentification :: Object Model",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+
+]
+
+[tool.setuptools.package-data]
+# Include .j2 files in all packages
+"*" = ["*.j2"]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pytest>=8.4.2",
+]
+
+[tool.black]
+line-length = 79

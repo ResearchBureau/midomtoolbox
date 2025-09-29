@@ -1,0 +1,7 @@
+{% for group in private %}
+### Private group
+{{ group.justification }}
+| tag | description | VR | VM |
+| --- | ---- | ------ | ------- |{% for element in group.elements %}
+| {{ element.identifier }} | {{ element.description }} | {{ element.value_representation }} | {{ element.value_multiplicity }} |{% endfor %}
+{% endfor %}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+    <elements type="Private">
+		<!-- A description -->
+		<element code="K" cr="PRODUCER 1" el="00" gp="0075" key="AnonymizedPatientName" vm="1" vr="PN" />
+		<element code="K" cr="PRODUCER 1" el="01" gp="0075" key="AnonymizedPatientID" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="02" gp="0075" key="AnonymizedPatientNamePrefix" vm="1" vr="PN" />
+		<element code="K" cr="PRODUCER 1" el="03" gp="0075" key="AnonymizedPatientIdPrefix" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="04" gp="0075" key="InternalPatientNameChanged" vm="1" vr="PN" />
+		<element code="K" cr="PRODUCER 1" el="05" gp="0075" key="InternalPatientIdChanged" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="06" gp="0075" key="InternalStudyAndSeriesIdChanged" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="10" gp="0075" key="AnonymizedAccessionNumber" vm="1" vr="SH" />
+		<element code="K" cr="PRODUCER 1" el="11" gp="0075" key="AnonymizedStudyId" vm="1" vr="SH" />
+		<element code="K" cr="PRODUCER 1" el="21" gp="0075" key="ProjectName" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="22" gp="0075" key="SiteName" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="23" gp="0075" key="SiteID" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="24" gp="0075" key="TrialName" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="25" gp="0075" key="Subject" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="26" gp="0075" key="UIDRoot" vm="1" vr="UI" />
+		<element code="K" cr="PRODUCER 1" el="27" gp="0075" key="JobID" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="28" gp="0075" key="SourceInstanceID" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="70" gp="0075" key="BasicConfidentiallyProfile" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="71" gp="0075" key="CleanPixelDataOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="72" gp="0075" key="CleanRecognizableVisualFeaturesOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="73" gp="0075" key="CleanGraphicsOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="74" gp="0075" key="CleanStructuredContentOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="75" gp="0075" key="CleanDescriptorsOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="76" gp="0075" key="RetainLongitudinalTemporalInformationWithFullDatesOptions" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="77" gp="0075" key="RetainPatientCharacteristicsOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="78" gp="0075" key="RetainDeviceIdentityOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="79" gp="0075" key="RetainUIDsOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="80" gp="0075" key="RetainSafePrivateOption" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="81" gp="0075" key="RetainLongitudinalTemporalInformationWithModifiedDatesOptions" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="82" gp="0075" key="InternalDatesChanged" vm="1" vr="CS" />
+		<element code="K" cr="PRODUCER 1" el="90" gp="0075" key="CallingAET" vm="1" vr="AE" />
+		<element code="K" cr="PRODUCER 1" el="91" gp="0075" key="CallingIP" vm="1" vr="LO" />
+		<element code="K" cr="PRODUCER 1" el="92" gp="0075" key="CalledAET" vm="1" vr="AE" />
+
+		<!-- Added by Person X -->
+		<element code="K" cr="Another Producer 123" el="01" gp="0019" key="AECCoordinates" vm="1-n" vr="UL" />
+		<element code="K" cr="Another Producer 123" el="02" gp="0019" key="AECCoordinates Size" vm="1-n" vr="US" />
+		<element code="K" cr="Another Producer 123" el="05" gp="0019" key="UNKNOWN_(LO:Always0)" vm="1" vr="US" />
+		<element code="K" cr="Another Producer 123" el="06" gp="0019" key="UNKNOWN_(LO:Always0)" vm="1" vr="US" />
+		<element code="K" cr="Another Producer 123" el="10" gp="0019" key="DerivationDescription" vm="1" vr="ST" />
+		<element code="K" cr="Another Producer 123" el="02" gp="0041" key="ReasonForTheRequestedProcedure" vm="1" vr="LO" />
+		<element code="K" cr="Another Producer 123" el="01" gp="0055" key="ProjectionViewDisplayString" vm="1" vr="LO" />
+		<element code="K" cr="Another Producer 123" el="10" gp="0051" key="UNKNOWN_(LO:Some(Recon)Parameters)" vm="1" vr="ST" />
+		<element code="K" cr="Another Producer 123" el="20" gp="0051" key="UNKNOWN_(LO:HistogramStatistics)" vm="1" vr="ST" />
+		<element code="K" cr="Another Producer 123" el="21" gp="0051" key="UNKNOWN_(LO:COMPANY A_TOMO)" vm="1" vr="LO" />
+		<element code="K" cr="Another Producer 123" el="32" gp="0051" key="ImagePosition(Tomo)" vm="3" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="37" gp="0051" key="ImageOrientation(Tomo)" vm="6" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="50" gp="0051" key="ProjectionSeriesInstanceUID" vm="1" vr="UI" />
+		<element code="K" cr="Another Producer 123" el="60" gp="0051" key="PrimaryPositionerScanArc" vm="1" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="61" gp="0051" key="SecondaryPositionerScanArc" vm="1" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="62" gp="0051" key="PrimaryPositionerScanStartAngle" vm="1" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="63" gp="0051" key="SecondaryPositionerScanStartAngle" vm="1" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="64" gp="0051" key="PrimaryPositionerIncrement" vm="1" vr="DS" />
+		<element code="K" cr="Another Producer 123" el="65" gp="0051" key="SecondaryPositionerIncrement" vm="1" vr="DS" />
+
+    </elements>
+</dictionary>

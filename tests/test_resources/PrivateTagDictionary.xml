@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+    <elements type="Private">
+		<!-- Private DICOM elements used for guiding the de-identification process -->
+		<element code="K" cr="ANONYMIZER" el="00" gp="0075" key="AnonymizedPatientName" vm="1" vr="PN" />
+		<element code="K" cr="ANONYMIZER" el="01" gp="0075" key="AnonymizedPatientID" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="02" gp="0075" key="AnonymizedPatientNamePrefix" vm="1" vr="PN" />
+		<element code="K" cr="ANONYMIZER" el="03" gp="0075" key="AnonymizedPatientIdPrefix" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="04" gp="0075" key="InternalPatientNameChanged" vm="1" vr="PN" />
+		<element code="K" cr="ANONYMIZER" el="05" gp="0075" key="InternalPatientIdChanged" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="10" gp="0075" key="AnonymizedAccessionNumber" vm="1" vr="SH" />
+		<element code="K" cr="ANONYMIZER" el="11" gp="0075" key="AnonymizedStudyId" vm="1" vr="SH" />
+		<element code="K" cr="ANONYMIZER" el="21" gp="0075" key="ProjectName" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="22" gp="0075" key="SiteName" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="23" gp="0075" key="SiteID" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="24" gp="0075" key="TrialName" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="25" gp="0075" key="Subject" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="26" gp="0075" key="UIDRoot" vm="1" vr="UI" />
+		<element code="K" cr="ANONYMIZER" el="27" gp="0075" key="JobID" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="28" gp="0075" key="SourceInstanceID" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="70" gp="0075" key="BasicConfidentiallyProfile" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="71" gp="0075" key="CleanPixelDataOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="72" gp="0075" key="CleanRecognizableVisualFeaturesOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="73" gp="0075" key="CleanGraphicsOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="74" gp="0075" key="CleanStructuredContentOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="75" gp="0075" key="CleanDescriptorsOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="76" gp="0075" key="RetainLongitudinalTemporalInformationWithFullDatesOptions" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="77" gp="0075" key="RetainPatientCharacteristicsOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="78" gp="0075" key="RetainDeviceIdentityOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="79" gp="0075" key="RetainUIDsOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="80" gp="0075" key="RetainSafePrivateOption" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="81" gp="0075" key="RetainLongitudinalTemporalInformationWithModifiedDatesOptions" vm="1" vr="CS" />
+		<element code="K" cr="ANONYMIZER" el="90" gp="0075" key="CallingAET" vm="1" vr="AE" />
+		<element code="K" cr="ANONYMIZER" el="91" gp="0075" key="CallingIP" vm="1" vr="LO" />
+		<element code="K" cr="ANONYMIZER" el="92" gp="0075" key="CalledAET" vm="1" vr="AE" />
+		
+		<!-- From COMPANY B DICOM Conformance statement MAMMOMAT Inspiration WH AWS VB41 -->
+		<element code="K" cr="COMPANY A MACHINE 1" el="01" gp="0019" key="AECCoordinates" vm="1-n" vr="UL" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="02" gp="0019" key="AECCoordinates Size" vm="1-n" vr="US" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="05" gp="0019" key="UNKNOWN_(LO:Always0)" vm="1" vr="US" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="06" gp="0019" key="UNKNOWN_(LO:Always0)" vm="1" vr="US" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="10" gp="0019" key="DerivationDescription" vm="1" vr="ST" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="02" gp="0041" key="ReasonForTheRequestedProcedure" vm="1" vr="LO" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="01" gp="0055" key="ProjectionViewDisplayString" vm="1" vr="LO" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="10" gp="0051" key="UNKNOWN_(LO:Some(Recon)Parameters)" vm="1" vr="ST" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="20" gp="0051" key="UNKNOWN_(LO:HistogramStatistics)" vm="1" vr="ST" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="21" gp="0051" key="UNKNOWN_(LO:COMPANY B_TOMO)" vm="1" vr="LO" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="32" gp="0051" key="ImagePosition(Tomo)" vm="3" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="37" gp="0051" key="ImageOrientation(Tomo)" vm="6" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="50" gp="0051" key="ProjectionSeriesInstanceUID" vm="1" vr="UI" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="60" gp="0051" key="PrimaryPositionerScanArc" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="61" gp="0051" key="SecondaryPositionerScanArc" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="62" gp="0051" key="PrimaryPositionerScanStartAngle" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="63" gp="0051" key="SecondaryPositionerScanStartAngle" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="64" gp="0051" key="PrimaryPositionerIncrement" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY A MACHINE 1" el="65" gp="0051" key="SecondaryPositionerIncrement" vm="1" vr="DS" />
+
+		<!-- From COMPANY B DICOM Conformance statement Biograph mCT VG60A -->
+		<element code="K" cr="COMPANY B MED PT" el="21" gp="0071" key="RegistrationMatrixUID" vm="1" vr="UI" />
+		<element code="K" cr="COMPANY B MED PT" el="22" gp="0071" key="DecayCorrectionDateTime" vm="1" vr="DT" />
+		<element code="K" cr="COMPANY B MED PT" el="23" gp="0071" key="RegistrationMatrix" vm="1-n" vr="FD" />
+		<element code="K" cr="COMPANY B MED PT" el="24" gp="0071" key="TableMotion" vm="1" vr="CS" />
+		<element code="K" cr="COMPANY B MED PT MU MAP" el="01" gp="0071" key="SOPClassOfSource" vm="1" vr="UI" />
+		<element code="K" cr="COMPANY B MED PT MU MAP" el="02" gp="0071" key="RelatedMuMapSeries" vm="1" vr="UI" />
+
+        <element code="K" cr="COMPANY B MR HEADER" el="0A" gp="0019" key="NumberOfImagesInMosaic" vm="1" vr="US" />
+        <element code="K" cr="COMPANY B MR HEADER" el="0B" gp="0019" key="SliceMeasurementDuration" vm="1" vr="DS" />
+        <element code="K" cr="COMPANY B MR HEADER" el="0C" gp="0019" key="B_value" vm="1" vr="IS" />
+        <element code="K" cr="COMPANY B MR HEADER" el="0D" gp="0019" key="DiffusionDirectionality" vm="1" vr="CS" />
+        <element code="K" cr="COMPANY B MR HEADER" el="0E" gp="0019" key="DiffusionGradientDirection" vm="3" vr="FD" />
+        <element code="K" cr="COMPANY B MR HEADER" el="0F" gp="0019" key="GradientMode" vm="1" vr="SH" />
+        <element code="K" cr="COMPANY B MR HEADER" el="27" gp="0019" key="B_matrix" vm="6" vr="FD" />
+        <element code="K" cr="COMPANY B MR HEADER" el="28" gp="0019" key="BandwidthPerPixelPhaseEncode" vm="1" vr="FD" />
+
+		<element code="K" cr="COMPANY_C_CT" el="0b" gp="7005" key="Filter" vm="2" vr="SH" />
+		<element code="K" cr="COMPANY_C_CT" el="1b" gp="7005" key="ConvolutionKernel" vm="1" vr="SH" />
+		<element code="K" cr="COMPANY_C_CT" el="23" gp="7005" key="PitchFactor" vm="1" vr="DS" />
+		<element code="K" cr="COMPANY_C_CT" el="41" gp="7005" key="RawSliceInformation" vm="1" vr="SH" />
+		<element code="K" cr="COMPANY_C_CT" el="92" gp="7005" key="ReconProcess" vm="1" vr="SH" />
+		<element code="K" cr="COMPANY_C_CT" el="93" gp="7005" key="AcquisitionMode" vm="1" vr="SH" />
+
+        <!-- Added by X for Y, see ticket xxx -->
+        <element code="K" cr="COMPANY B CSA HEADER" el="08" gp="0029" key="CSAImageHeaderType" vm="1" vr="CS" />        
+        <element code="K" cr="COMPANY B CSA HEADER" el="09" gp="0029" key="CSAImageHeaderVersion" vm="1" vr="LO" />
+        <element code="K" cr="COMPANY B CSA HEADER" el="10" gp="0029" key="CSAImageHeaderInfo" vm="1" vr="OB" />       
+        <element code="K" cr="COMPANY B CSA HEADER" el="18" gp="0029" key="CSASeriesHeaderType" vm="1" vr="CS" />
+        <element code="K" cr="COMPANY B CSA HEADER" el="19" gp="0029" key="CSASeriesHeaderVersion" vm="1" vr="LO" />
+        <element code="K" cr="COMPANY B CSA HEADER" el="20" gp="0029" key="CSASeriesHeaderInfo" vm="3" vr="OB" />
+      
+        
+    </elements>
+</dictionary>

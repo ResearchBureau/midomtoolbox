@@ -12,8 +12,30 @@ _⚠️ Major version 0. Not feature complete. Still testing out the interface_
 
 * Works with MIDOM Protocols (https://pypi.org/project/midom/)
 * Converts to CTP scripts
-
-## upcoming features
 * Generates summaries
+
+## installation
+```
+pip install midomtoolbox
+```
+
+## usage
+To take a MIDOM protocol json file and render to markup format:
+```python
+from midom.components import Protocol    
+from midomtoolbox.render import render_protocol
+
+# load protocol
+with open("/tmp/ctp_pipeline.json") as f:
+    protocol = Protocol.model_validate_json(f.read())
+
+# render
+with open("/tmp/output.md", "w") as f:
+    f.write(render_protocol(protocol))
+```
+
+For other examples, see [/examples](https://github.com/ResearchBureau/midomtoolbox/tree/main/examples) 
+
+## planned features
 * Characterizes according to protocol taxonomy
-* Wizzard-based Protocols generation
+* Wizzard-based Protocol generation

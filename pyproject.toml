@@ -3,6 +3,7 @@ name = "midomtoolbox"
 version = "0.1.0"
 description = "Shape, convert, summarize and analyse MIDOM deidentification Protocols"
 readme = "README.md"
+license = "Apache-2.0"
 requires-python = ">=3.12"
 dependencies = [
     "jinja2>=3.1.6",

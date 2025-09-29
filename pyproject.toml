@@ -11,6 +11,7 @@ dependencies = [
     "midom>=0.3.1",
     "pre-commit>=4.3.0",
     "pydicom>=3.0.1",
+    "pytest-cov>=7.0.0",
     "tabulate>=0.9.0",
 ]
 

@@ -1,10 +1,12 @@
 """Functions and Classes for Translating CTP objects to MIDOM and DICOM objects"""
 from collections import defaultdict
 from typing import List
+from warnings import warn
 
 from midom.components import PrivateAllowGroup, PrivateElement, TagAction
 from midom.constants import ActionCodes
 from midom.identifiers import tag_identifier_from_string
+from pydantic import ValidationError
 
 from midomtoolbox.ctp.config_script import CTPTraceableTagAction
 from midomtoolbox.ctp.elements import CTPRule
@@ -104,7 +106,8 @@ def to_tag_actions(ctp_tag_actions):
     for ctp_tag_action in ctp_tag_actions:
         try:
             converted.append(to_tag_action(ctp_tag_action))
-        except CTPScriptProcessIsNoActionError:
+        except (CTPScriptProcessIsNoActionError, CTPScriptParseError):
+            warn(f"Could not find tag action for {ctp_tag_action}")
             continue
 
     return converted
@@ -118,15 +121,20 @@ def parse_private_dict(file_path) -> List[PrivateAllowGroup]:
 
     dict_file = TagDictionaryFile(path=file_path)
     parsed = dict_file.parse()
-    midom_parsed = [
-        PrivateElement(
-            identifier=tag_identifier_from_string(x.tag.tag_string),
-            description=x.tag_key,
-            value_representation=x.VR,
-            value_multiplicity=x.VM,
-        )
-        for x in parsed.elements
-    ]
+    midom_parsed = []
+    for x in parsed.elements:
+        try:
+            midom_parsed.append(
+                PrivateElement(
+                    identifier=tag_identifier_from_string(x.tag.tag_string),
+                    description=x.tag_key,
+                    value_representation=x.VR,
+                    value_multiplicity=x.VM,
+                )
+            )
+        except ValidationError as e:
+            raise ValueError(f"error parsing {x}: {e}")
+
     # separate per privatecreator
     per_creator = defaultdict(list)
     for x in midom_parsed:

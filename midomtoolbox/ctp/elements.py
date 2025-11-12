@@ -150,6 +150,9 @@ class CTPRule(Resolvable):
         """
         self.line_elements = line_elements
 
+    def __str__(self):
+        return ",".join(str(x) for x in self.line_elements)
+
     def resolve(self, context: CTPConfigScriptContext):
         """Resolve all line elements
 

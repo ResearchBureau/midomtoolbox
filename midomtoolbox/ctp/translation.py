@@ -54,10 +54,7 @@ def rule_to_action_code(ctp_rule: CTPRule) -> TagAction:
     if len(ctp_rule.line_elements) > 1:
 
         rule_str = ctp_rule.ctp_script_string()
-        if "always" in rule_str and any(
-            x in rule_str
-            for x in ("YES", "PerDICOMPS315AnnexEDetailsin00120064")
-        ):
+        if "always" in rule_str:
             return ActionCodes.DUMMY
         elif "always" in rule_str and any(
             x in rule_str for x in ("UNMODIFIED")
@@ -83,6 +80,7 @@ def rule_to_action_code(ctp_rule: CTPRule) -> TagAction:
 def to_tag_action(ctp_tag_action: CTPTraceableTagAction) -> TagAction:
     """Convert a CTP-parsed action into a MIDOM TagAction"""
     identifier = tag_identifier_from_string(ctp_tag_action.tag_code)
+    justification = f"Read from CTP ({ctp_tag_action.parent_script.name})"
 
     if (
         ctp_tag_action.tag_code == "00120064"
@@ -90,13 +88,13 @@ def to_tag_action(ctp_tag_action: CTPTraceableTagAction) -> TagAction:
         return TagAction(
             identifier=identifier,
             action=ActionCodes.DUMMY,
-            justification="Read from CTP",
+            justification=justification,
         )
 
     return TagAction(
         identifier=identifier,
         action=rule_to_action_code(ctp_tag_action.rule),
-        justification="Read from CTP",
+        justification=justification,
     )
 
 

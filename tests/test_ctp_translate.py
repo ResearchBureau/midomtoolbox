@@ -1,4 +1,7 @@
-from midomtoolbox.ctp.config_script import CTPTraceableTagAction
+from midomtoolbox.ctp.config_script import (
+    CTPConfigScript,
+    CTPTraceableTagAction,
+)
 from midomtoolbox.ctp.elements import CTPFunction, CTPRule
 from midomtoolbox.ctp.translation import to_tag_action
 
@@ -8,6 +11,7 @@ def test_to_tag_action():
         tag_code="00080020",
         tag_name="StudyDate",
         rule=CTPRule(line_elements=[CTPFunction("keep")]),
+        parent_script=CTPConfigScript(elements=[], name="Dummy test script"),
     )
     translated = to_tag_action(tag_action)
     assert translated  # just don't crash

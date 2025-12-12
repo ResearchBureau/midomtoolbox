@@ -5,5 +5,7 @@ from midomtoolbox.render import render_protocol
 
 protocol = ProtocolFactory.build()
 
-with open("/tmp/output.md", "w") as f:
+out_file = "/tmp/output.md"
+with open(out_file, "w") as f:
+    print(f"wrote to {out_file}")
     f.write(render_protocol(protocol))

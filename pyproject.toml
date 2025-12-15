@@ -32,7 +32,9 @@ classifiers = [
 [dependency-groups]
 dev = [
     "black>=25.1.0",
+    "markdown>=3.10",
     "pytest>=8.4.2",
+    "weasyprint>=67.0",
 ]
 
 [tool.black]

@@ -1,9 +1,10 @@
 """Generate a protocol with random values"""
 from midomtoolbox.generators import ProtocolFactory
-from midomtoolbox.render import render_protocol
-
+from midomtoolbox.render.markdown import render_protocol
 
 protocol = ProtocolFactory.build()
+protocol.sort_tags()  # Sort from specific to general
+
 
 out_file = "/tmp/output.md"
 with open(out_file, "w") as f:

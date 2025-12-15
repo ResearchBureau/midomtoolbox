@@ -1,6 +1,6 @@
 from tabulate import tabulate
 
-from midomtoolbox.render.markup import (
+from midomtoolbox.render.markdown import (
     render_private_tags_table,
     render_protocol,
     render_tags_table,

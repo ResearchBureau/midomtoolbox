@@ -28,6 +28,6 @@ repos:
       - id: mypy
         additional_dependencies:
           - pydantic
-          - types-requests
+          - types-markdown
           - types-tabulate
         exclude: docs/.*

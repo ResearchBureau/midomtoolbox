@@ -1,4 +1,4 @@
-"""Write and export MIDOM protocol files"""
+"""Writing MIDOM protocol files as markup files"""
 from typing import List
 
 from jinja2 import Environment, PackageLoader

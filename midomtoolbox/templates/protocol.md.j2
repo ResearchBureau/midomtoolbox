@@ -5,14 +5,14 @@ The DICOM standard has different answers according to which SOPClass you are pro
 the answer to 'what is done to each tag?' is split according to SOPClass. The designations
 can include an asterisk (`*`) wildcard to indicate any SOPClass matching the pattern.
 
-{% for sop_class, tags_table in protocol.tags.items() %}
+{% for sop_class, tags_table in protocol_contents.tags.items() %}
 ### SOPClass "{{ sop_class }}"
 {% with tags_table=tags_table %}
 {% include "tags_table.md.j2" %}
 {% endwith %}
 {% endfor %}
 ## Private
-{% with private=protocol.private %}
+{% with private=protocol_contents.private %}
 {% include "private_tags_table.md.j2" %}
 {% endwith %}
 ## Filters

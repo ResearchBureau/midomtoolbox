@@ -9,7 +9,6 @@ from midomtoolbox.render.markdown import render_protocol
 protocol = ProtocolFactory.build()
 protocol.sort_tags()  # Sort from specific to general
 
-
 md_protocol = render_protocol(protocol)
 
 html = markdown.markdown(md_protocol, extensions=["tables"])
@@ -17,30 +16,56 @@ html = markdown.markdown(md_protocol, extensions=["tables"])
 font_config = FontConfiguration()
 css = CSS(
     string="""
+
+@page {
+  margin: 5%;  /* weasy directive. 5% is UMCN recommended */
+}
+
 body{
+    /* Reset all margins. I want maximum page usage*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Milo;
+    #background-color: grey;
     width:100%;
     font-size:1rem;
     line-height:1.8rem;
     font-weight:400;
-    color:var(--color-text-tint-1, #575757);
+    #color:var(--color-text-tint-1, #575757);
     overflow-y:scroll;
     overflow-x:hidden;
     font-color: blue;
+    padding: 0px;
+
 }
 h1{
+    margin: 0;
+    padding-top: 0.26em;
+    border-top: 0.13em solid #00AFDC; /* Same thickness as dash */
     font-size:2.5em;
-    margin:.67em 0;
+    width: 100%;
+    color: #00AFDC;
+    #margin:.67em 0;
 }
 
 h2{
+    font-weight:200;
     font-size:2rem;
-    margin:40px 0;
+    width: 100%;
+    color: #00AFDC;
+    #margin:40px 0;
 }
 h3{
-    margin:54px 0 24px;
+    #margin:54px 0 24px;
+    width: 100%;
     font-size:1.5rem;
 }
 table{
+    width: 98%;
+    margin-left: 1%;
+    #table-layout: fixed;
     border-collapse:collapse;
     border-spacing:0;
     border-collapse: collapse;
@@ -60,7 +85,9 @@ td,th{
     font-size:0.6rem;
     line-height:0.8rem;
     border-left: 0.5pt solid white;
-    padding: 0.5em;
+    padding: 1pt;
+    padding-left: 1pt;
+    padding-right: 1em;
 }
 
 """,

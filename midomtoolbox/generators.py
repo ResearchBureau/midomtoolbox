@@ -6,6 +6,7 @@ import factory
 from factory import fuzzy
 from faker import Faker
 from midom.components import (
+    CriterionString,
     Filter,
     PixelOperation,
     PrivateAllowGroup,
@@ -210,12 +211,34 @@ class PrivateAllowGroupFactory(factory.Factory):
     )
 
 
+class CriterionStringFactory(factory.Factory):
+    class Meta:
+        model = CriterionString
+
+    content = (
+        "SOPClassUID.equals('1.2.840.10008.5.1.4.1.1.11.1') and"
+        " not SeriesDescription.equals('Annotation')"
+    )
+
+
+class FilterFactory(factory.Factory):
+    class Meta:
+        model = Filter
+
+    criterion = factory.SubFactory(CriterionStringFactory)
+    justification = factory.LazyFunction(
+        lambda: f"Reject some datasets because of: {Faker().sentence(nb_words=5)}'"
+    )
+
+
 class ProtocolFactory(factory.Factory):
     class Meta:
         model = Protocol
 
     tags = factory.LazyFunction(generate_tags_list_item)
-    filters: List[Filter] = []
+    filters: List[Filter] = factory.List(
+        [factory.SubFactory(FilterFactory) for _ in range(3)]
+    )
     pixel: List[PixelOperation] = []
     private = factory.List(
         [factory.SubFactory(PrivateAllowGroupFactory) for _ in range(4)]

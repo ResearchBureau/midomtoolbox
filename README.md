@@ -20,6 +20,8 @@ pip install midomtoolbox
 ```
 
 ## usage
+
+### Working with Protocols
 To take a MIDOM protocol json file and render to markup format:
 ```python
 from midom.components import Protocol    
@@ -34,8 +36,18 @@ with open("/tmp/output.md", "w") as f:
     f.write(render_protocol(protocol))
 ```
 
-For other examples, see [/examples](https://github.com/ResearchBureau/midomtoolbox/tree/main/examples) 
+### Validation
 
-## planned features
-* Characterizes according to protocol taxonomy
-* Wizzard-based Protocol generation
+### Other examples
+See [/examples](https://github.com/ResearchBureau/midomtoolbox/tree/main/examples) 
+
+## FAQ
+**Why MIDOM and MIDOMToolbox? Why not just all MIDOM?**
+MIDOM is about an Object Model; it is as implementation-agnostic as possible. It has
+some python implementations for convenience, for JSON serialization for example. But 
+the value is mostly in the interfaces it describes. It should be light-weight to
+include in other python packages, keeping its own package dependencies minimal
+
+
+MIDOMToolbox is a library that fully embraces python and provides tools for anything
+involving MIDOM objects. As a toolbox, it is free to have a large number of dependencies.

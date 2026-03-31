@@ -4,11 +4,13 @@ from typing import List
 
 import factory
 from factory import fuzzy
+from factory.fuzzy import FuzzyInteger
 from faker import Faker
 from midom.components import (
     CriterionString,
     Filter,
-    PixelOperation,
+    PILocation,
+    PixelArea,
     PrivateAllowGroup,
     PrivateElement,
     Protocol,
@@ -221,6 +223,35 @@ class CriterionStringFactory(factory.Factory):
     )
 
 
+class PixelAreaFactory(factory.Factory):
+    class Meta:
+        model = PixelArea
+
+    x = FuzzyInteger(0, 100)
+    y = FuzzyInteger(0, 100)
+    width = FuzzyInteger(0, 200)
+    height = FuzzyInteger(0, 100)
+
+
+class PILocationFactory(factory.Factory):
+    class Meta:
+        model = PILocation
+
+    """
+        description: str
+    criterion: CriterionString
+    areas: List[PixelArea]
+    """
+    description = factory.LazyFunction(
+        lambda: "A description of this PI location:"
+        f" '{Faker().sentence(nb_words=5)}'"
+    )
+    criterion = factory.SubFactory(CriterionStringFactory)
+    areas = factory.List(
+        [factory.SubFactory(PixelAreaFactory) for _ in range(3)]
+    )
+
+
 class FilterFactory(factory.Factory):
     class Meta:
         model = Filter
@@ -239,7 +270,9 @@ class ProtocolFactory(factory.Factory):
     filters: List[Filter] = factory.List(
         [factory.SubFactory(FilterFactory) for _ in range(3)]
     )
-    pixel: List[PixelOperation] = []
+    pixel: List[PILocation] = factory.List(
+        [factory.SubFactory(PILocationFactory) for _ in range(2)]
+    )
     private = factory.List(
         [factory.SubFactory(PrivateAllowGroupFactory) for _ in range(4)]
     )

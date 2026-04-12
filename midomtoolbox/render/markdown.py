@@ -4,7 +4,7 @@ from typing import Dict, List
 from jinja2 import Environment, PackageLoader
 from midom.components import (
     Filter,
-    PixelOperation,
+    PILocation,
     PrivateAllowGroup,
     Protocol,
     TagAction,
@@ -58,7 +58,7 @@ class ProtocolContents(BaseModel):
 
     tags: Dict[str, List[TagAction]]
     filters: List[Filter]
-    pixel: List[PixelOperation]
+    pixel: List[PILocation]
     private: List[PrivateAllowGroup]
 
     @classmethod

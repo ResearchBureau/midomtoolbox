@@ -6,6 +6,7 @@ readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.12"
 dependencies = [
+    "dicomgenerator>=0.12.0",
     "factory-boy>=3.3.3",
     "jinja2>=3.1.6",
     "lark>=1.2.2",
@@ -34,6 +35,7 @@ classifiers = [
 dev = [
     "black>=25.1.0",
     "markdown>=3.10",
+    "matplotlib>=3.10.8",
     "pytest>=8.4.2",
     "weasyprint>=67.0",
 ]

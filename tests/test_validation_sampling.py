@@ -22,7 +22,6 @@ def test_pixel_data_replace():
     # load again, PixelNoiseURI is translated to actual noise
     loaded = serializer.to_dataset(json_data)
 
-    # persist/load -> check still the same
     # for debug
     # import matplotlib.pyplot as plt
     # plt.imshow(loaded.pixel_array)

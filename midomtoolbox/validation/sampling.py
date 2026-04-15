@@ -2,6 +2,7 @@
 import json
 import random
 import string
+from functools import partial
 from typing import ClassVar
 
 import numpy as np
@@ -199,7 +200,7 @@ class SampleDataSerializer:
                     "BulkDataURI": new_value.to_string(),
                 }
 
-        return json.dumps(json_dict)
+        return json.dumps(json_dict, indent=2)
 
     @classmethod
     def bulk_data_reader(cls, tag, vr, bulk_data_uri):
@@ -255,7 +256,7 @@ class SampleDataSerializer:
         if replace_with_pixel_noise:
             return ds.to_json(dump_handler=cls.dump_handler)
         else:
-            return ds.to_json()
+            return ds.to_json(dump_handler=partial(json.dumps, indent=2))
 
     @classmethod
     def to_dataset(cls, json_string: str) -> Dataset:

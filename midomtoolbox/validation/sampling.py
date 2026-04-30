@@ -3,11 +3,12 @@ import json
 import random
 import string
 from functools import partial
-from typing import ClassVar
+from typing import Any, ClassVar, List
 
 import numpy as np
 from dicomgenerator.pixeldata import draw_noise
-from pydantic import BaseModel
+from midom.components import PixelArea
+from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
 from pydicom import Dataset, FileMetaDataset
 from pydicom.tag import Tag
 from pydicom.uid import ExplicitVRLittleEndian
@@ -170,7 +171,7 @@ class SampleDataSerializer:
     -----
     Decided to make this into a class instead of a module because I prefer the
     explicit initialisation in code over just an import at the top of the file. This
-    serialization is potentially information-destroying so I prefer explicit init.
+    serialization is potentially information-destroying, so I prefer explicit init.
     """
 
     PIXEL_DATA_TAGS = (Tag(0x7FE00010),)  # Pixel Data
@@ -276,3 +277,47 @@ class SampleDataSerializer:
         ds.file_meta.TransferSyntaxUID = ExplicitVRLittleEndian
 
         return ds
+
+
+class SampleDataset(BaseModel):
+    """A DICOM dataset that can be used as a samples for testing and validation
+
+    Extra features are original UID, PI regions, and possibility to replace image
+    data with noise. Noise replaced image data will take only a fraction of the
+    original data but retain the original shape.
+    """
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)  # for Dataset
+
+    uid: str
+    dataset: Dataset
+    pi_regions: List[PixelArea]
+
+    def to_json(self, replace_pixel_data: bool = False) -> str:
+        """Serialize to JSON, optionally replace pixel data"""
+        data = json.loads(self.model_dump_json(exclude={"dataset"}))
+
+        # Inject the custom dataset serialization
+        data["dataset"] = json.loads(
+            SampleDataSerializer().to_json(
+                self.dataset, replace_with_pixel_noise=replace_pixel_data
+            )
+        )
+        return json.dumps(data, indent=2)
+
+    @field_serializer("dataset")
+    def serialize_dataset(self, ds: Dataset) -> dict:
+        """Serialize pydicom Dataset to a JSON-compatible dict."""
+        return ds.to_json_dict()
+
+    @field_validator("dataset", mode="before")
+    @classmethod
+    def deserialize_dataset(cls, v: Any) -> Dataset:
+        """Deserialize a dict/string back into a pydicom Dataset."""
+        if isinstance(v, Dataset):
+            return v
+        if isinstance(v, str):
+            return SampleDataSerializer().to_dataset(v)
+        if isinstance(v, dict):
+            return SampleDataSerializer().to_dataset(json.dumps(v))
+        raise ValueError(f"Cannot deserialize Dataset from type {type(v)}")

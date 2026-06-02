@@ -6,15 +6,15 @@ from functools import partial
 from typing import Any, ClassVar, List
 
 import numpy as np
-from dicomgenerator.pixeldata import draw_noise
+from dicomgenerator.pixeldata import Block, add_blocks, draw_noise
 from midom.components import PixelArea
+from midom.validation import deepcopy_fix
 from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
 from pydicom import Dataset, FileMetaDataset
 from pydicom.tag import Tag
 from pydicom.uid import ExplicitVRLittleEndian
 
 from midomtoolbox.logs import get_module_logger
-
 
 logger = get_module_logger("sampling")
 
@@ -321,3 +321,39 @@ class SampleDataset(BaseModel):
         if isinstance(v, dict):
             return SampleDataSerializer().to_dataset(json.dumps(v))
         raise ValueError(f"Cannot deserialize Dataset from type {type(v)}")
+
+    def generate_reference(self) -> tuple[Dataset, Dataset]:
+        """Returns original dataset and reference dataset where PI locations have
+        been set to zero
+        """
+        return generate_reference(self)
+
+
+def generate_reference(sample: SampleDataset) -> tuple[Dataset, Dataset]:
+    """Generate an original - reference dataset pair from sample data set
+
+    Converts the custom SampleDataset objects into a less custom format -
+    just two pydicom datasets.
+
+    Reads information from SampleDataset objects. These contain a dicom dataset and
+    PI locations. For each SampleDataset, PILocationValidationSet returns dataset and
+    creates a second dataset where the PI locations have been zeroed
+    (set to pixel value 0)
+    """
+    reference = sample.dataset
+    result = deepcopy_fix(sample.dataset)
+    for pir in sample.pi_regions:
+        # paint all PI regions zero in result
+        result = add_blocks(
+            result,
+            [
+                Block(
+                    origin_x=pir.x,
+                    origin_y=pir.y,
+                    width=pir.width,
+                    height=pir.height,
+                )
+            ],
+            value=0,
+        )
+    return reference, result

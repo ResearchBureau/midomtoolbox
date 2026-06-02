@@ -25,7 +25,7 @@ pip install midomtoolbox
 To take a MIDOM protocol json file and render to markup format:
 ```python
 from midom.components import Protocol    
-from midomtoolbox.render import render_protocol
+from midomtoolbox.render.markdown import render_protocol
 
 # load protocol
 with open("/tmp/ctp_pipeline.json") as f:

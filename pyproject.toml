@@ -42,3 +42,6 @@ dev = [
 
 [tool.black]
 line-length = 79
+
+[tool.uv.sources]
+midom = { path = "../midom" }

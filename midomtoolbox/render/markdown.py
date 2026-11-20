@@ -22,7 +22,7 @@ def to_tags_table_contents(tag_actions: List[TagAction]):
         output.append(
             {
                 "identifier": str(tag_action.identifier),
-                "name": tag_action.identifier.key(),
+                "name": tag_action.identifier.name(),
                 "action": tag_action.action.var_name,
                 "comment": tag_action.justification,
             }

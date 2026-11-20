@@ -37,7 +37,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Test with uv
         run: |
-          uv run pytest --cov-branch --cov-report term-missing --cov=tests/ --cov=midom/
+          uv run pytest --cov-branch --cov-report term-missing --cov=tests/ --cov=midomtoolbox/
   deploy:
     if: github.event_name == 'release'
     needs: [precommit, build]
